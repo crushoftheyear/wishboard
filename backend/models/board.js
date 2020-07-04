@@ -10,20 +10,16 @@ const boardSchema = new mongoose.Schema(
       minlength: 1,
       maxlength: 40
     },
+    theme: {
+      type: String,
+      required: true
+    },
     wishes: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Wish'
       }
     ],
-    accessToken: {
-      type: String,
-      default: () => crypto.randomBytes(128).toString('hex'),
-    },
-    theme: {
-      type: String,
-      required: true
-    },
     createdAt: {
       type: Date,
       default: () => new Date()

@@ -22,7 +22,7 @@ const wishSchema = new mongoose.Schema(
     url: {
       type: String
     },
-    priority: {
+    rank: {
       type: Number,
       default: 0
     },
