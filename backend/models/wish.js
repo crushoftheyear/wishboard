@@ -26,6 +26,9 @@ const wishSchema = new mongoose.Schema(
       type: Number,
       default: 0
     },
+    boardParent: {
+      type: String,
+    },
     createdAt: {
       type: Date,
       default: () => new Date()

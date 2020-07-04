@@ -161,7 +161,8 @@ app.post('/boards/:boardId', async (req, res) => {
       category,
       imgUrl,
       url,
-      rank
+      rank,
+      boardParent: boardId
     })
 
     newWish.save((err, newWish) => {
