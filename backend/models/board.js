@@ -20,6 +20,9 @@ const boardSchema = new mongoose.Schema(
         ref: 'Wish'
       }
     ],
+    createdBy: {
+      type: String,
+    },
     createdAt: {
       type: Date,
       default: () => new Date()

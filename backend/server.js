@@ -117,13 +117,17 @@ app.get('/users/:userId', async (req, res) => {
 })
 
 // Create new Board
-app.post('/boards', authenticateUser)
-app.post('/boards', async (req, res) => {
-  const userId = req.user
+app.post('/users/:userId/boards', authenticateUser)
+app.post('/users/:userId/boards', async (req, res) => {
+  const { userId } = req.params
   const { title, theme } = req.body
 
   try {
-    const newBoard = await new Board({ title, theme }).save()
+    const newBoard = await new Board({
+      title,
+      theme,
+      createdBy: userId
+    }).save()
 
     // Push new board into Users createdBoards array
     await User.findOneAndUpdate(
