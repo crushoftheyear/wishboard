@@ -233,7 +233,7 @@ app.delete('/boards/:boardId', async (req, res) => {
   } catch (err) {
     res.status(404).json({
       message: ERR_DELETE_BOARD,
-      error: err.errors
+      errors: err.errors
     })
   }
 })
@@ -249,7 +249,7 @@ app.delete('/wish/:wishId', async (req, res) => {
   } catch (err) {
     res.status(404).json({
       message: ERR_DELETE_WISH,
-      error: err.errors
+      errors: err.errors
     })
   }
 })
