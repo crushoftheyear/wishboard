@@ -230,7 +230,7 @@ app.delete('/users/:userId/boards/:boardId', async (req, res) => {
       { $pull: { createdBoards: boardId } }
     )
 
-    await Wish.findOneAndDelete({ boardParent: boardId })
+    await Wish.deleteMany({ boardParent: boardId })
 
     res.status(200).json({ message: DELETED_BOARD })
   } catch (err) {
