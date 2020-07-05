@@ -149,9 +149,9 @@ app.post('/users/:userId/boards', async (req, res) => {
 })
 
 // Create new Wish
-app.post('/boards/:boardId', authenticateUser)
-app.post('/boards/:boardId', async (req, res) => {
-  const { boardId } = req.params
+app.post('/users/:userId/boards/:boardId', authenticateUser)
+app.post('/users/:userId/boards/:boardId', async (req, res) => {
+  const { userId, boardId } = req.params
   const { title, description, category, imgUrl, url, rank } = req.body
 
   try {
@@ -162,7 +162,8 @@ app.post('/boards/:boardId', async (req, res) => {
       imgUrl,
       url,
       rank,
-      boardParent: boardId
+      boardParent: boardId,
+      createdBy: userId
     })
 
     newWish.save((err, newWish) => {
@@ -228,12 +229,18 @@ app.get('/wish/:wishId', async (req, res) => {
 })
 
 // Delete board
-app.delete('/boards/:boardId', authenticateUser)
-app.delete('/boards/:boardId', async (req, res) => {
-  const { boardId } = req.params
+app.delete('/users/:userId/boards/:boardId', authenticateUser)
+app.delete('/users/:userId/boards/:boardId', async (req, res) => {
+  const { userId, boardId } = req.params
 
   try {
     await Board.findOneAndDelete({ _id: boardId })
+
+    // Find & remove board from users createdBoards
+    await User.findByIdAndUpdate(
+      { _id: userId },
+      { $pull: { createdBoards: boardId } })
+
     res.status(200).json({ message: DELETED_BOARD })
   } catch (err) {
     res.status(404).json({
@@ -244,9 +251,9 @@ app.delete('/boards/:boardId', async (req, res) => {
 })
 
 // Delete wish
-app.delete('/wish/:wishId', authenticateUser)
-app.delete('/wish/:wishId', async (req, res) => {
-  const { wishId } = req.params
+app.delete('/users/:userId/wish/:wishId', authenticateUser)
+app.delete('/users/:userId/wish/:wishId', async (req, res) => {
+  const { userId, wishId } = req.params
 
   try {
     await Wish.findOneAndDelete({ _id: wishId })
