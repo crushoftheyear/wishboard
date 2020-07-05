@@ -39,5 +39,98 @@ export const user = createSlice({
 })
 
 // Thunks
-const baseUrl = 'http://localhost:8080'
+const BASE_URL = 'http://localhost:8080'
 
+// Sign up
+export const signup = (name, email, password) => {
+  const SIGNUP_URL = `${BASE_URL}/users`
+
+  return (dispatch) => {
+    fetch(SIGNUP_URL, {
+      method: 'POST',
+      body: JSON.stringify({ name, email, password }),
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
+        }
+        throw new Error('Unable to create user. Please try again.')
+      })
+      .then((json) => {
+        dispatch(user.actions.setAccessToken({ accessToken: json.accessToken }))
+        dispatch(user.actions.setUserId({ userId: json._id }))
+        dispatch(user.actions.setName({ name: json.name }))
+      })
+      .catch((err) => {
+        dispatch(user.actions.setErrorMessage({ errorMessage: err }))
+      })
+  }
+}
+
+// Log in
+export const login = (email, password) => {
+  const LOGIN_URL = `${BASE_URL}/sessions`
+
+  return (dispatch) => {
+    fetch(LOGIN_URL, {
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
+        }
+        throw new Error('Unable to log in. Please check your email and password.')
+      })
+      .then((json) => {
+        dispatch(user.actions.setAccessToken({ accessToken: json.accessToken }))
+        dispatch(user.actions.setUserId({ userId: json._id }))
+        dispatch(user.actions.setName({ name: json.name }))
+        dispatch(user.actions.setErrorMessage({ errorMessage: '' }))
+      })
+      .catch((err) => {
+        dispatch(user.actions.setErrorMessage({ errorMessage: err }))
+      })
+  }
+}
+
+// Get user info
+export const userInfo = (accessToken, userId) => {
+  const USER_URL = `${BASE_URL}/users/${userId}`
+
+  return (dispatch) => {
+    fetch(USER_URL, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: accessToken,
+      }
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
+        }
+        throw new Error('Could not get user information. Make sure you are logged in and try again.')
+      })
+      .then((json) => {
+        dispatch(user.actions.setCreatedBoards({ createdBoards: json.createdBoards }))
+      })
+      .catch((err) => {
+        dispatch(user.actions.setErrorMessage({ errorMessage: err }))
+      })
+  }
+}
+
+/*
+// Log out
+export const logout = () => {
+  return (dispatch) => {
+    dispatch(user.actions.clearState())
+    dispatch(boards.actions.clearState())
+    dispatch(wishes.actions.clearState())
+    window.localStorage.clear()
+  }
+}
+*/
