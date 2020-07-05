@@ -169,7 +169,7 @@ app.post('/users/:userId/boards/:boardId', async (req, res) => {
     newWish.save((err, newWish) => {
 
       if (newWish) {
-        res.status(201).json({
+        return res.status(201).json({
           message: CREATED_WISH,
           id: newWish._id,
           newWish
@@ -239,7 +239,8 @@ app.delete('/users/:userId/boards/:boardId', async (req, res) => {
     // Find & remove board from users createdBoards
     await User.findByIdAndUpdate(
       { _id: userId },
-      { $pull: { createdBoards: boardId } })
+      { $pull: { createdBoards: boardId } }
+    )
 
     res.status(200).json({ message: DELETED_BOARD })
   } catch (err) {
@@ -251,12 +252,19 @@ app.delete('/users/:userId/boards/:boardId', async (req, res) => {
 })
 
 // Delete wish
-app.delete('/users/:userId/wish/:wishId', authenticateUser)
-app.delete('/users/:userId/wish/:wishId', async (req, res) => {
-  const { userId, wishId } = req.params
+app.delete('/boards/:boardId/wish/:wishId', authenticateUser)
+app.delete('/boards/:boardId/wish/:wishId', async (req, res) => {
+  const { boardId, wishId } = req.params
 
   try {
     await Wish.findOneAndDelete({ _id: wishId })
+
+    // Find & remove wish from boards wishes array
+    await Board.findByIdAndUpdate(
+      { _id: boardId },
+      { $pull: { wishes: wishId } }
+    )
+
     res.status(200).json({ message: DELETED_WISH })
   } catch (err) {
     res.status(404).json({
