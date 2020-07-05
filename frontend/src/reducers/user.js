@@ -48,8 +48,8 @@ export const signup = (name, email, password) => {
   return (dispatch) => {
     fetch(SIGNUP_URL, {
       method: 'POST',
-      body: JSON.stringify({ name, email, password }),
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, password })
     })
       .then((res) => {
         if (res.ok) {
@@ -75,8 +75,8 @@ export const login = (email, password) => {
   return (dispatch) => {
     fetch(LOGIN_URL, {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
     })
       .then((res) => {
         if (res.ok) {
