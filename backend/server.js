@@ -164,23 +164,7 @@ app.post('/users/:userId/boards/:boardId', async (req, res) => {
       rank,
       boardParent: boardId,
       createdBy: userId
-    })
-
-    newWish.save((err, newWish) => {
-
-      if (newWish) {
-        return res.status(201).json({
-          message: CREATED_WISH,
-          id: newWish._id,
-          newWish
-        })
-      } else {
-        res.status(400).json({
-          message: ERR_CREATE_WISH,
-          errors: err.errors
-        })
-      }
-    })
+    }).save()
 
     // Push new wish into Boards wishes array
     await Board.findOneAndUpdate(
@@ -188,7 +172,11 @@ app.post('/users/:userId/boards/:boardId', async (req, res) => {
       { $push: { wishes: newWish._id } }
     ).populate('wishes')
 
-    res.status(201).json(newWish)
+    res.status(201).json({
+      message: CREATED_WISH,
+      id: newWish._id,
+      newWish
+    })
   } catch (err) {
     res.status(400).json({
       message: ERR_CREATE_WISH,
@@ -241,6 +229,8 @@ app.delete('/users/:userId/boards/:boardId', async (req, res) => {
       { _id: userId },
       { $pull: { createdBoards: boardId } }
     )
+
+    await Wish.findOneAndDelete({ boardParent: boardId })
 
     res.status(200).json({ message: DELETED_BOARD })
   } catch (err) {
