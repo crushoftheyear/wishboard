@@ -125,10 +125,10 @@ export const deleteBoard = (userId, boardId) => {
         throw new Error('Could not delete board.')
       })
       .then((json) => {
-        //
+        // TODO: Delete action in slice & dispatch here
       })
       .catch((err) => {
-        //
+        dispatch(board.actions.setErrorMessage({ errorMessage: err }))
       })
   }
 }
