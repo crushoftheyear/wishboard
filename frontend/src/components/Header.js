@@ -1,62 +1,69 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { user } from 'reducers/user'
-import { ui } from 'reducers/ui'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGift } from '@fortawesome/free-solid-svg-icons'
+
+import { user } from 'reducers/user'
+import { ui } from 'reducers/ui'
 
 import { Button } from './Button'
 
 export const Header = () => {
   const history = useHistory()
   const dispatch = useDispatch()
-  // const loggedInUser = useSelector((store) => store.user)
-  const userForm = useSelector((store) => store.ui.loginForm)
-  // const loggedIn = useSelector((store) => store.user.loggedIn)
 
   // Check if user is logged in
   const accessToken = useSelector((store) => store.user.accessToken)
-  const isLoggedIn = accessToken !== null
-  console.log('LOGGED IN: ' + isLoggedIn)
-
-  // DEV
-  const loggedIn = false
+  // const loggedInUser = useSelector((store) => store.user)
 
   // Toggle login/signup form
+  const userForm = useSelector((store) => store.ui.loginForm)
+
   const toggleForm = () => {
     dispatch(ui.actions.setLoginForm({ loginForm: !userForm }))
-    // Clear error message
     dispatch(user.actions.setErrorMessage({ errorMessage: null }))
   }
+
+  const homeBtn = () => {
+    if (accessToken) {
+      history.push('/profile')
+    } else {
+      history.push('/')
+    }
+  }
+
+  useEffect(() => {
+    if (accessToken) {
+      history.push('/profile')
+    }
+  }, [accessToken, history, dispatch])
 
   return (
     <header>
       <div className="container">
 
-        <div className="logo">
-          <Link to="/">
-            <FontAwesomeIcon icon={faGift} />
-          </Link>
+        <div className="logo" onClick={() => homeBtn()}>
+          <FontAwesomeIcon icon={faGift} />
         </div>
 
-        {!loggedIn && (
+        {!accessToken && (
           <Button
             label={userForm ? 'Sign up' : 'Log in'}
             className="toggle-form-btn"
             submitHandler={() => {
               toggleForm()
-              // history.push('/')
+              history.push('/')
             }}
           />
         )}
 
-        {loggedIn && (
+        {accessToken && (
           <>
             {/* <Button
               label={loggedInUser.name.charAt(0).toUpperCase()}
               className="home-btn"
-              submitHandler={() => { history.push('/') }}
+              submitHandler={() => { history.push('/profile') }}
             /> */}
 
             <Button
