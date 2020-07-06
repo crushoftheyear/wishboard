@@ -10,12 +10,12 @@ import { board } from 'reducers/board'
 import { wish } from 'reducers/wish'
 
 import { saveState, loadState } from 'utils/localStorage'
-// import { Header } from 'components/Header'
-// import { Main } from 'components/Main'
-// import { Home } from 'pages/Home'
-// import { Board } from 'pages/Board'
-// import { Wish } from 'pages/Wish'
-// import { PageNotFound } from 'pages/PageNotFound'
+
+import { Wrapper } from 'components/Wrapper'
+import { LandingPage } from 'pages/LandingPage'
+import { Profile } from 'pages/Profile'
+import { Board } from 'pages/Board'
+import { Wish } from 'pages/Wish'
 
 // import 'normalize.css'
 // import 'scss/app.scss'
@@ -44,17 +44,27 @@ export const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Header />
-        <Main>
+        <Wrapper>
           <Switch>
 
-            <Route path="/" component={Home} exact />
-            <Route path="/boards/:id" component={Board} exact />
-            <Route path="/wish/:id" component={Wish} exact />
-            <Route path="*" component={PageNotFound} />
+            <Route path="/" exact>
+              <LandingPage />
+            </Route>
+
+            <Route path="/profile">
+              <Profile />
+            </Route>
+
+            <Route path="/:board">
+              <Board />
+            </Route>
+
+            <Route path="/:board/:wish">
+              <Wish />
+            </Route>
 
           </Switch>
-        </Main>
+        </Wrapper>
       </BrowserRouter>
     </Provider>
   )

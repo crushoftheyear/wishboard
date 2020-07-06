@@ -32,7 +32,7 @@ export const user = createSlice({
       const { createdBoards } = action.payload
       state.createdBoards = createdBoards
     },
-    clearState: () => {
+    logout: () => {
       return initialState
     }
   }

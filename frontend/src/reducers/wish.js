@@ -78,6 +78,7 @@ export const createWish = (
 
   return (dispatch, getState) => {
     const { accessToken } = getState().user
+    const { userId } = getState().user
     const { boardId } = getState().board
 
     const WISH_URL = `${BASE_URL}/users/${userId}/boards/${boardId}`
