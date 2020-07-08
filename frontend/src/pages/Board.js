@@ -17,7 +17,6 @@ export const Board = () => {
   const [modalDisplay, setModalDisplay] = useState('')
   const dispatch = useDispatch()
   const history = useHistory()
-  // const isLoading = useSelector((store) => store.ui.isLoading)
   // const errorMessage = useSelector((store) => store.boards.board.errorMessage)
 
   const { boardId } = useParams()
@@ -27,16 +26,14 @@ export const Board = () => {
     // console.log('useEffect!')
   }, [boardId, dispatch])
 
-  const usersBoards = useSelector((store) => store.user.createdBoards)
-
-  // Check if user is the boardCreator
-  const boardCreatorAccess = () => {
-    const checkId = (board) => board._id === boardId
-    return usersBoards.some(checkId)
-  }
-
   const board = useSelector((store) => store.board)
-  const wishesExists = board.wishes.length > 0
+  const { title, wishes, createdBy } = board
+
+  // Check if board is created by user
+  const userId = useSelector((store) => store.user.userId)
+  const boardCreatorAccess = () => { return userId === createdBy }
+
+  const wishesExists = wishes.length > 0
 
   return (
     <section className="board">
@@ -47,7 +44,6 @@ export const Board = () => {
             faIcon={faArrowLeft}
             className="back-btn"
             submitHandler={() => {
-              // dispatch(board.actions.clearState())
               history.push('/profile')
             }}
           />
@@ -76,7 +72,7 @@ export const Board = () => {
       )}
 
       <>
-        <h1>{board.title}</h1>
+        <h1>{title}</h1>
 
         <Grid className="wishes-container">
 
@@ -86,7 +82,7 @@ export const Board = () => {
             </EmptyState>
           )}
 
-          {board.wishes.map((wish) => (
+          {wishes.map((wish) => (
             <WishCard key={uuid()} wish={wish} />
           ))}
 

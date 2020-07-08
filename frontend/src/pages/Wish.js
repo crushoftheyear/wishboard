@@ -15,17 +15,14 @@ export const Wish = () => {
   const { wishId } = useParams()
 
   useEffect(() => {
-    // dispatch(wish.actions.clearState())
     dispatch(wishInfo(wishId))
   }, [wishId, dispatch])
 
-  // const isLoading = useSelector((store) => store.ui.isLoading)
   const wish = useSelector((store) => store.wish)
-  const { title, description, category, imgUrl, url, priority } = wish
-  const currentBoard = useSelector((store) => store.board.boardId)
+  const { title, description, category, imgUrl, url, rank, boardParent } = wish
   // const errorMessage = useSelector((store) => store.wish.errorMessage)
 
-  // Checking if url contains http:// (and adds it)
+  // Add prefix to url
   const checkUrl = (extUrl) => {
     if (!extUrl.match(/^https?:\/\//i)) {
       extUrl = `http://${extUrl}`
@@ -33,7 +30,7 @@ export const Wish = () => {
     return extUrl
   }
 
-  // Removing http:// and www + shorten url
+  // Remove prefix & slugs from urls
   const shortenUrl = (extUrl) => {
     return extUrl.replace(/^(?:https?:\/\/)?(?:www\.)?/i, '').split('/')[0]
   }
@@ -44,26 +41,21 @@ export const Wish = () => {
         faIcon={faArrowLeft}
         className="back-btn"
         submitHandler={() => {
-          // dispatch(wish.actions.clearState())
-          history.push(`/boards/${currentBoard}`)
+          history.push(`/board/${boardParent}`)
         }}
       />
 
-      {/* {!isLoading && ( */}
       <div className="wish-container">
 
         <div className="img-container wish-img">
           <div className="ratio" />
-          <img
-            src={imgUrl || placeholder}
-            alt={title}
-          />
+          <img src={imgUrl || placeholder} alt={title} />
         </div>
 
         <div className="wish-desc">
           <div className="wish-desc-header">
             <span>{category}</span>
-            <span>{priority}</span>
+            <span>{rank}</span>
           </div>
 
           <h1>{title}</h1>
@@ -77,9 +69,7 @@ export const Wish = () => {
           )}
 
         </div>
-
       </div>
-      {/* )} */}
 
       {/* {errorMessage && <h2 className="error-message">{`${errorMessage}`}</h2>} */}
 
