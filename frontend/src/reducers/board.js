@@ -96,7 +96,7 @@ export const boardInfo = (boardId) => {
         dispatch(board.actions.setTitle({ title: json.title }))
         dispatch(board.actions.setTheme({ theme: json.theme }))
         dispatch(board.actions.setWishes({ wishes: json.wishes }))
-        dispatch(board.actions.setCreatedBy({ setCreatedBy: json.createdBy }))
+        dispatch(board.actions.setCreatedBy({ createdBy: json.createdBy }))
       })
       .catch((err) => {
         dispatch(board.actions.setErrorMessage({ errorMessage: err }))
