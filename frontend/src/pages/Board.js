@@ -27,7 +27,6 @@ export const Board = () => {
     // console.log('useEffect!')
   }, [boardId, dispatch])
 
-
   const usersBoards = useSelector((store) => store.user.createdBoards)
 
   // Check if user is the boardCreator

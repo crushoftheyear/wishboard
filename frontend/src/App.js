@@ -55,11 +55,11 @@ export const App = () => {
               <Profile />
             </Route>
 
-            <Route path="/:boardId">
+            <Route path="/board/:boardId">
               <Board />
             </Route>
 
-            <Route path="/:boardId/:wishId">
+            <Route path="/wish/:wishId">
               <Wish />
             </Route>
 

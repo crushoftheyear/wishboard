@@ -5,7 +5,7 @@ import { Card } from 'components/Card'
 import placeholder from 'img/wish_placeholder.png'
 
 export const WishCard = ({ wish }) => {
-  const { _id, title, category, imgUrl } = wish
+  const { _id, title, category, imgUrl, boardParent } = wish
 
   return (
     <Link to={`/wish/${_id}`}>

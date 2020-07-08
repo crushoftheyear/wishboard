@@ -28,7 +28,7 @@ export const BoardCard = ({ board }) => {
   }
 
   const linkToBoard = () => {
-    history.push(`/${_id}`)
+    history.push(`/board/${_id}`)
   }
 
   return (
