@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
-// import { CreateBoard } from './CreateBoard'
-// import { CreateWish } from './CreateWish'
-// import { ShareBoard } from './ShareBoard'
+import { CreateBoard } from './CreateBoard'
+import { CreateWish } from './CreateWish'
+import { ShareBoard } from './ShareBoard'
 
 export const Modal = ({ isShowing, hide, display }) => {
   return (
@@ -19,9 +19,9 @@ export const Modal = ({ isShowing, hide, display }) => {
               <FontAwesomeIcon icon={faTimes} />
             </button>
 
-            {/* {display === 'create-board' && <CreateBoard closeModal={hide} />}
+            {display === 'create-board' && <CreateBoard closeModal={hide} />}
             {display === 'create-wish' && <CreateWish closeModal={hide} />}
-            {display === 'share-board' && <ShareBoard />} */}
+            {display === 'share-board' && <ShareBoard />}
 
           </div>
         </div>

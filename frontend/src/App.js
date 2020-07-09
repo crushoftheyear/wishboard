@@ -17,8 +17,8 @@ import { Profile } from 'pages/Profile'
 import { Board } from 'pages/Board'
 import { Wish } from 'pages/Wish'
 
-// import 'normalize.css'
-// import 'scss/app.scss'
+import 'normalize.css'
+import 'scss/app.scss'
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 

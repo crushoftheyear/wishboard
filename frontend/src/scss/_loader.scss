@@ -1,0 +1,52 @@
+/* –– Loader –– */
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+
+  .loader {
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 2rem;
+      margin: 0 0.5rem;
+  
+      @keyframes pulse {
+        0%,
+        50%,
+        100% {
+          -webkit-transform: scale(1);
+          -ms-transform: scale(1);
+          -o-transform: scale(1);
+          transform: scale(1);
+        }
+    
+        25% {
+          -webkit-transform: scale(1.2);
+          -ms-transform: scale(1.2);
+          -o-transform: scale(1.2);
+          transform: scale(1.2);
+        }
+      }
+  
+      &:nth-child(1) {
+        animation: pulse 1.2s ease-in-out infinite;
+      }
+      &:nth-child(2) {
+        font-size: 2.5rem;
+        animation: pulse 1.2s ease-in-out 0.2s infinite;
+      }
+      &:nth-child(3) {
+        animation: pulse 1.2s ease-in-out 0.4s infinite;
+      }
+    }
+  }
+  
+  p {
+    font-size: .8rem;
+  }
+}

@@ -1,0 +1,113 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  // grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-gap: 2rem;
+
+  @include xsmall {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include small {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include medium {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .card {
+    position: relative;
+    height: 100%;
+    background-color: $colorLight;
+    border-radius: $borderRadiusSmall;
+    box-shadow: 17px 17px 30px #dedede, -17px -17px 30px #ffffff;
+    transition: all .1s ease-in-out;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+
+  .img-container {
+    @extend .border-top-radius;
+  }
+
+  .card-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1.5rem;
+
+    h2 {
+      position: relative;
+      flex: 0 0 100%;
+    }
+
+    svg {
+      align-self: flex-end;
+      font-size: 1.5rem;
+    }
+
+    h4 {
+      align-self: flex-end;
+    }
+  }
+}
+
+.board-card {
+  .card-info {
+    height: 100%;
+  }
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: inherit;
+  transition: all .15s ease-in-out;
+}
+
+.empty-state {
+  position: relative;
+  grid-column-start: span 4;
+  text-align: center;
+
+  h2 {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 40%;
+    z-index: 1;
+    // background-color: rgba(blue, .8);
+    // border-radius: $borderRadiusSmall;
+    // padding: .6rem 1rem;
+}
+
+svg {
+  margin-top: -4rem;
+}
+
+  img {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 1rem;
+  }
+}
+
+.wish-card {
+  .card-info {
+    p {
+      margin: .5rem 0 0;
+      font-size: .95rem;
+      font-weight: bold;
+      text-transform: lowercase;
+    }
+  }
+}

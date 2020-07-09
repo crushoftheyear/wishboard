@@ -1,0 +1,25 @@
+header {
+  background-color: $colorPrimary;
+  color: darken($colorPrimary, 34%);
+  height: 80px;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 1rem;
+  }
+
+  .logo {
+    flex: 1 1 auto;
+    font-size: 2rem;
+  }
+
+  .home-btn {
+    margin-right: 1rem;
+    width: 40px;
+    padding: 0;
+    border-radius: $borderRadiusSmall;
+  }
+}

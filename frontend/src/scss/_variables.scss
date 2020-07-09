@@ -1,0 +1,57 @@
+// Colors
+$colorPrimary: #50aca2;
+$colorSecondary: #e6c345;
+$colorDark: #383e4e;
+$colorMedium: rgb(202, 202, 202);
+$colorLight: #f5f5f5;
+$colorSuccess: #4eb364;
+$colorError: #cf4339;
+
+$birthdayPrimary: #6666c7;
+$christmasPrimary: #279d59;
+$graduationPrimary: #6e9cc2;
+$lovePrimary: #DB565D;
+$randomPrimary: $colorPrimary;
+
+
+// Fonts
+$brandon: 'brandon_grotesque_regularRg', 'Helvetica Neue', 'sans-serif';
+$brandonBold: 'brandon_grotesquebold', 'Helvetica Neue', 'sans-serif';
+$brandonItalic: 'brandon_grotesqueRgIt', 'Helvetica Neue', 'sans-serif';
+
+// Border radius size
+$borderRadiusXSmall: 15px;
+$borderRadiusSmall: 20px;
+$borderRadiusLarge: 30px;
+
+
+// Media queries
+@mixin phone-only {
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+
+@mixin xsmall {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}

@@ -1,0 +1,149 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+
+/* –––– My page –––– */
+
+.mypage {
+  .page-header {
+    >:first-child {
+      flex: 1 1 auto;
+    }  
+    >:last-child {
+      flex: 0 0 auto;
+    }
+  }
+}
+
+/* –––– Board –––– */
+
+.board {
+  .page-header { 
+    >:nth-child(2) {
+      margin-left: auto;
+    }
+    >:last-child {
+      margin-left: .5rem;
+    }
+  }
+}
+
+.share-board {
+  .container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0 1rem;
+  }
+  textarea {
+    flex: 1 1 auto;
+    resize: none;
+    white-space: nowrap;
+    height: 40px;
+    padding: .6rem .8rem;
+    border: 1px solid $colorMedium;
+    border-radius: $borderRadiusXSmall;
+
+    &::selection {
+      background-color: transparent;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+  .copy-btn {
+    margin-left: 1rem;
+
+    &.copy-success {
+      background-color: $colorSuccess;
+    }
+  }
+
+  span.copy-success {
+    position: absolute;
+    bottom: -1.5rem;
+    right: 0;
+    font-size: .85rem;
+    font-weight: 600;
+  }
+}
+
+
+/* –––– Wish –––– */
+
+.wish {
+  .back-btn {
+    margin-bottom: 2rem;
+  }
+}
+
+.wish-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+
+    @include small {
+      grid-template-columns: 1fr 1fr;
+    }
+}
+
+.wish-img {
+  border-radius: $borderRadiusLarge;
+
+  .ratio {
+    padding-bottom: 100%;
+  }
+}
+
+.wish-desc {
+
+  .wish-desc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem;
+    font-size: .95rem;
+    // font-weight: bold;
+    font-family: $brandonBold;
+    text-transform: lowercase;
+
+    // Rank
+    >:last-child {
+      background: $colorPrimary;
+      color: #fff;
+      width: 30px;
+      padding-top: 6px;
+      text-align: center;
+      height: 30px;
+      border-radius: 50%;
+    }
+  }
+
+  a {
+    display: inline-block;
+    font-weight: 600;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 3px;
+      background: $colorPrimary;
+      transition: width .15s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    .svg-inline--fa {
+      width: .8rem;
+      margin-left: .5rem;
+    }
+  }
+
+}

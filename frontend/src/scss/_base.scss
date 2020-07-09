@@ -1,0 +1,119 @@
+/* –––– General styles –––– */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: $colorDark;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.3;
+  font-family: $brandon, 'Avenir', 'Helvetica', 'sans-serif';
+  -webkit-font-smoothing: antialiased;
+
+  ::selection {
+    background-color: $colorPrimary;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-family: $brandonBold;
+}
+
+h2 {
+  font-family: $brandonBold;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+button {
+  border: 0;
+  height: 40px;
+  border-radius: $borderRadiusXSmall;
+  background-color: $colorSecondary;
+  padding: .6rem 1.2rem;
+  font-family: $brandonBold;
+  font-weight: inherit;
+  transition: all .15s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($colorSecondary, 15%);
+  }
+
+  &:focus {
+    @extend .input-focus;
+  }
+}
+
+main {
+  padding: 2rem;
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+
+.error-message {
+  display: block;
+  margin-top: 1rem;
+  color: $colorError;
+}
+
+
+/* –––– Responsive image –––– */
+
+.img-container {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    -o-object-fit: cover;
+    object-fit: cover;
+    object-position: 50% 50%;
+    transition: transform .3s ease-in-out;
+  }
+
+  .ratio {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 70%;
+    overflow: hidden;
+  }
+}

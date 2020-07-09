@@ -1,0 +1,22 @@
+// Card
+.board-card {
+  &.theme-birthday {
+  color: $birthdayPrimary;
+  }
+
+  &.theme-christmas {
+  color: $christmasPrimary;
+  }
+
+  &.theme-graduation {
+  color: $graduationPrimary;
+  }
+
+  &.theme-love {
+  color: $lovePrimary;
+  }
+
+  &.theme-random {
+  color: $randomPrimary;
+  }
+}
