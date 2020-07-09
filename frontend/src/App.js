@@ -45,6 +45,7 @@ export const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Wrapper>
+
           <Switch>
 
             <Route path="/" exact>
@@ -64,7 +65,9 @@ export const App = () => {
             </Route>
 
           </Switch>
+
         </Wrapper>
+
       </BrowserRouter>
     </Provider>
   )

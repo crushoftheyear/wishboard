@@ -4,8 +4,8 @@ import { faClipboard } from '@fortawesome/free-solid-svg-icons'
 import { Button } from './Button'
 
 export const ShareBoard = () => {
-  const board = useSelector((store) => store.boards.board)
-  const url = `https://wishboard-backend.herokuapp.com/boards/${board.boardId}`
+  const board = useSelector((store) => store.board)
+  const url = `http://localhost:8080/board/${board.boardId}`
   const link = useRef(null)
   const [copySuccess, setCopySuccess] = useState(false)
 
