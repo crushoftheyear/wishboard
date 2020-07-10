@@ -24,11 +24,17 @@
 .modal {
   z-index: 100;
   position: relative;
+  width: 90%;
+  max-width: 500px;
+  margin: 1rem auto;
   padding: 2rem;
-  width: 500px;
-  margin: 2rem auto;
   background-color: #fff;
   border-radius: $borderRadiusLarge;
+
+
+  @include xsmall {
+    margin: 3rem auto;
+  }
 }
 
 .close-btn {

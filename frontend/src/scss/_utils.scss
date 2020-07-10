@@ -14,3 +14,9 @@
   border-bottom-left-radius: $borderRadiusSmall;
   border-bottom-right-radius: $borderRadiusSmall;
 }
+
+.first-letter-uppercase {
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}

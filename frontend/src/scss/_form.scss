@@ -29,6 +29,10 @@ form {
     &:focus {
       @extend .input-focus;
     }
+
+    @include phone-only {
+      width: 100%;
+    }
   }
 
   input {
