@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useModal } from 'hooks/useModal'
+import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { userInfo } from 'reducers/user'
 
@@ -16,6 +17,7 @@ export const Profile = () => {
 
   const { isShowing, toggle } = useModal()
   const dispatch = useDispatch()
+  const history = useHistory()
 
   // User data
   const accessToken = useSelector((store) => store.user.accessToken)
@@ -26,6 +28,8 @@ export const Profile = () => {
   useEffect(() => {
     if (accessToken) {
       dispatch(userInfo(accessToken, userId))
+    } else {
+      history.push('/')
     }
   }, [accessToken, userId, dispatch])
 

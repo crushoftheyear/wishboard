@@ -15,7 +15,7 @@ export const Header = () => {
 
   // Check if user is logged in
   const accessToken = useSelector((store) => store.user.accessToken)
-  // const loggedInUser = useSelector((store) => store.user)
+  const currentUser = useSelector((store) => store.user)
 
   // Toggle login/signup form
   const userForm = useSelector((store) => store.ui.loginForm)
@@ -55,7 +55,7 @@ export const Header = () => {
         {accessToken && (
           <>
             {/* <Button
-              label={loggedInUser.name.charAt(0).toUpperCase()}
+              label={currentUser.name.charAt(0).toUpperCase()}
               className="home-btn"
               submitHandler={() => { history.push('/profile') }}
             /> */}
