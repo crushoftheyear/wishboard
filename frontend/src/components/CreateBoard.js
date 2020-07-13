@@ -6,7 +6,7 @@ import { Input } from './Input'
 import { Select } from './Select'
 import { Button } from './Button'
 
-export const CreateBoard = () => {
+export const CreateBoard = ({ closeModal }) => {
   const dispatch = useDispatch()
 
   const [title, setTitle] = useState('')
@@ -21,7 +21,9 @@ export const CreateBoard = () => {
   ]
 
   const submitHandler = () => {
+    // e.preventDefault()
     dispatch(createBoard(title, theme))
+    closeModal()
   }
 
   return (

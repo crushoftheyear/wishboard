@@ -31,7 +31,7 @@ export const Profile = () => {
     } else {
       history.push('/')
     }
-  }, [accessToken, userId, dispatch])
+  }, [accessToken, userId, dispatch, history])
 
   return (
     <section className="profile">

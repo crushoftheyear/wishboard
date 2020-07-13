@@ -7,7 +7,7 @@ import { Textarea } from './Textarea'
 import { Select } from './Select'
 import { Button } from './Button'
 
-export const CreateWish = () => {
+export const CreateWish = ({ closeModal }) => {
   const dispatch = useDispatch()
 
   const [title, setTitle] = useState('')
@@ -33,7 +33,9 @@ export const CreateWish = () => {
   ]
 
   const submitHandler = () => {
+    // e.preventDefault()
     dispatch(createWish(title, description, category, imgUrl, url, priority))
+    closeModal()
   }
 
   return (
@@ -85,10 +87,8 @@ export const CreateWish = () => {
             <option key={option} value={option}>{option}</option>
           ))}
         </Select>
-        <Button
-          label="Create wish"
-          className=""
-        />
+
+        <Button label="Create wish" />
       </form>
     </>
   )

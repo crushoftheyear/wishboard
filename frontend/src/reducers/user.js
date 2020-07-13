@@ -59,7 +59,7 @@ export const signup = (name, email, password) => {
       })
       .then((json) => {
         dispatch(user.actions.setAccessToken({ accessToken: json.accessToken }))
-        dispatch(user.actions.setUserId({ userId: json._id }))
+        dispatch(user.actions.setUserId({ userId: json.id }))
         dispatch(user.actions.setName({ name: json.name }))
       })
       .catch((err) => {
