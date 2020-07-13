@@ -39,7 +39,7 @@ export const user = createSlice({
 })
 
 // Thunks
-const BASE_URL = 'http://localhost:8080'
+const BASE_URL = 'https://wishboard-backend.herokuapp.com'
 
 // Sign up
 export const signup = (name, email, password) => {

@@ -64,7 +64,7 @@ export const wish = createSlice({
 })
 
 // Thunks
-const BASE_URL = 'http://localhost:8080'
+const BASE_URL = 'https://wishboard-backend.herokuapp.com'
 
 // Create new wish
 export const createWish = (
