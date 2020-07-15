@@ -15,7 +15,7 @@ export const Header = () => {
 
   // Check if user is logged in
   const accessToken = useSelector((store) => store.user.accessToken)
-  const currentUser = useSelector((store) => store.user)
+  // const currentUser = useSelector((store) => store.user)
 
   // Toggle login/signup form
   const userForm = useSelector((store) => store.ui.loginForm)
