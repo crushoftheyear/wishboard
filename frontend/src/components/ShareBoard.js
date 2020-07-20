@@ -5,7 +5,7 @@ import { Button } from './Button'
 
 export const ShareBoard = () => {
   const board = useSelector((store) => store.board)
-  const url = `https://wishboard-backend.herokuapp.com/board/${board.boardId}`
+  const url = `https://wishboard.netlify.app/board/${board.boardId}`
   const link = useRef(null)
   const [copySuccess, setCopySuccess] = useState(false)
 
