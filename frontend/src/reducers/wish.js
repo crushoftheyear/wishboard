@@ -149,4 +149,4 @@ export const wishInfo = (wishId) => {
   }
 }
 
-// Delete wish
+// TODO: Delete wish

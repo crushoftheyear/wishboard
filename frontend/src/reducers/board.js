@@ -105,7 +105,7 @@ export const boardInfo = (boardId) => {
   }
 }
 
-// Delete board –– WIP
+// Delete board –– ! WIP
 export const deleteBoard = (userId, boardId) => {
   const DELETE_BOARD_URL = `${BASE_URL}/users/${userId}/boards/${boardId}`
 

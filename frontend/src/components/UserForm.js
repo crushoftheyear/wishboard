@@ -12,6 +12,8 @@ export const UserForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const errorMessage = useSelector((store) => store.user.errorMessage)
+
   // Login
   const handleLogin = (e) => {
     e.preventDefault()
@@ -63,6 +65,8 @@ export const UserForm = () => {
           minLength={4}
           maxLength={20}
         />
+
+        <span className="error-message">{errorMessage && errorMessage.message}</span>
 
         {loginForm ? (
           <Button

@@ -4,8 +4,20 @@
   margin-bottom: 2rem;
 }
 
+/* –––– Landing page –––– */
+
 .landing-page {
-  margin: auto;
+  @include xsmall {
+    margin: auto;
+  }
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  .user-form {
+    margin-top: 2rem;
+  }
 }
 
 

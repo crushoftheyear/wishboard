@@ -15,7 +15,6 @@ export const Header = () => {
 
   // Check if user is logged in
   const accessToken = useSelector((store) => store.user.accessToken)
-  // const currentUser = useSelector((store) => store.user)
 
   // Toggle login/signup form
   const userForm = useSelector((store) => store.ui.loginForm)
@@ -41,7 +40,7 @@ export const Header = () => {
           <FontAwesomeIcon icon={faGift} />
         </div>
 
-        {!accessToken && (
+        {!accessToken ? (
           <Button
             label={userForm ? 'Sign up' : 'Log in'}
             className="toggle-form-btn"
@@ -50,16 +49,7 @@ export const Header = () => {
               history.push('/')
             }}
           />
-        )}
-
-        {accessToken && (
-          <>
-            {/* <Button
-              label={currentUser.name.charAt(0).toUpperCase()}
-              className="home-btn"
-              submitHandler={() => { history.push('/profile') }}
-            /> */}
-
+        ) : (
             <Button
               label="Log out"
               className="logout-btn"
@@ -68,9 +58,7 @@ export const Header = () => {
                 history.push('/')
               }}
             />
-
-          </>
-        )}
+          )}
       </div>
     </header>
   )

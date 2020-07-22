@@ -61,6 +61,7 @@ export const signup = (name, email, password) => {
         dispatch(user.actions.setAccessToken({ accessToken: json.accessToken }))
         dispatch(user.actions.setUserId({ userId: json.id }))
         dispatch(user.actions.setName({ name: json.name }))
+        dispatch(user.actions.setErrorMessage({ errorMessage: '' }))
       })
       .catch((err) => {
         dispatch(user.actions.setErrorMessage({ errorMessage: err }))
@@ -122,15 +123,3 @@ export const userInfo = (accessToken, userId) => {
       })
   }
 }
-
-/*
-// Log out
-export const logout = () => {
-  return (dispatch) => {
-    dispatch(user.actions.clearState())
-    dispatch(boards.actions.clearState())
-    dispatch(wishes.actions.clearState())
-    window.localStorage.clear()
-  }
-}
-*/

@@ -7,6 +7,11 @@
 
 form {
   margin-top: 2rem;
+  width: 300px;
+
+  @include phone-only {
+      width: 100%;
+    }
   
   label, button {
     display: block;
@@ -20,7 +25,8 @@ form {
   input,
   textarea {
     border: 0;
-    width: 300px;
+    // width: 300px;
+    width: 100%;
     background-color: $colorLight;
     padding: .6rem 1rem;
     border-radius: $borderRadiusXSmall;
@@ -30,9 +36,9 @@ form {
       @extend .input-focus;
     }
 
-    @include phone-only {
-      width: 100%;
-    }
+    // @include phone-only {
+    //   width: 100%;
+    // }
   }
 
   input {
