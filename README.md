@@ -25,4 +25,3 @@ The backend is built with Node.js, Express & MongoDB. The UI is built using Reac
 
 ## Deployed
 https://wishboard.netlify.app/
-https://wishboard-backend.herokuapp.com/
