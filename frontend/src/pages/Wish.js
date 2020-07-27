@@ -20,7 +20,6 @@ export const Wish = () => {
 
   const wish = useSelector((store) => store.wish)
   const { title, description, category, imgUrl, url, rank, boardParent } = wish
-  // const errorMessage = useSelector((store) => store.wish.errorMessage)
 
   // Add prefix to url
   const checkUrl = (extUrl) => {
@@ -70,8 +69,6 @@ export const Wish = () => {
 
         </div>
       </div>
-
-      {/* {errorMessage && <h2 className="error-message">{`${errorMessage}`}</h2>} */}
 
     </section>
   )

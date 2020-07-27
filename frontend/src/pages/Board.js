@@ -17,7 +17,6 @@ export const Board = () => {
   const [modalDisplay, setModalDisplay] = useState('')
   const dispatch = useDispatch()
   const history = useHistory()
-  // const errorMessage = useSelector((store) => store.boards.board.errorMessage)
 
   const { boardId } = useParams()
 
@@ -25,8 +24,8 @@ export const Board = () => {
     dispatch(boardInfo(boardId))
   }, [boardId, dispatch])
 
-  const board = useSelector((store) => store.board)
-  const { title, wishes, createdBy } = board
+  const currentBoard = useSelector((store) => store.board)
+  const { title, wishes, createdBy } = currentBoard
 
   // Check if board is created by user
   const userId = useSelector((store) => store.user.userId)
@@ -87,8 +86,6 @@ export const Board = () => {
 
         </Grid>
       </>
-
-      {/* {errorMessage && <h2 className="error-message">{`${errorMessage}`}</h2>} */}
 
     </section>
   )
