@@ -23,7 +23,6 @@ export const Board = () => {
 
   useEffect(() => {
     dispatch(boardInfo(boardId))
-    // console.log('useEffect!')
   }, [boardId, dispatch])
 
   const board = useSelector((store) => store.board)

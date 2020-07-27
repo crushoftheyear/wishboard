@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { board } from './board'
 
 const initialState = {
   wishId: 0,
@@ -111,6 +112,7 @@ export const createWish = (
         dispatch(wish.actions.setImgUrl({ imgUrl: json.imgUrl }))
         dispatch(wish.actions.setUrl({ url: json.url }))
         dispatch(wish.actions.setRank({ rank: json.rank }))
+        dispatch(board.actions.addWish({ newWish: json.newWish }))
       })
       .catch((err) => {
         dispatch(wish.actions.setErrorMessage({ errorMessage: err }))

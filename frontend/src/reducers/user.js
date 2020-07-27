@@ -32,7 +32,7 @@ export const user = createSlice({
       const { createdBoards } = action.payload
       state.createdBoards = createdBoards
     },
-    addBoard: (state, action) => { // WIP!
+    addBoard: (state, action) => {
       const { newBoard } = action.payload
       state.createdBoards.push(newBoard)
     },

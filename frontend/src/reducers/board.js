@@ -38,6 +38,10 @@ export const board = createSlice({
       const { createdBy } = action.payload
       state.createdBy = createdBy
     },
+    addWish: (state, action) => {
+      const { newWish } = action.payload
+      state.wishes.push(newWish)
+    },
     clearState: () => {
       return initialState
     }
