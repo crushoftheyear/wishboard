@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createBoard } from 'reducers/board'
+import { user } from 'reducers/user'
 
 import { Input } from './Input'
 import { Select } from './Select'

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-// import { user } from './user'
+import { user } from './user'
 
 const initialState = {
   boardId: 0,
@@ -71,6 +71,7 @@ export const createBoard = (title, theme) => {
       .then((json) => {
         dispatch(board.actions.setTitle({ title: json.title }))
         dispatch(board.actions.setTheme({ theme: json.theme }))
+        dispatch(user.actions.addBoard({ newBoard: json.newBoard }))
       })
       .catch((err) => {
         dispatch(board.actions.setErrorMessage({ errorMessage: err }))
