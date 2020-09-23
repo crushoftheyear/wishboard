@@ -8,6 +8,10 @@
 /* –––– Landing page –––– */
 
 .landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
   @include xsmall {
     margin: auto;
   }
@@ -16,8 +20,12 @@
     margin-bottom: 0;
   }
 
+  .btn-secondary {
+    margin-top: 2rem;
+  }
+
   .user-form {
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
 }
 

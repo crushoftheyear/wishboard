@@ -75,6 +75,16 @@ button {
   }
 }
 
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid $colorSecondary;
+  padding: 0 1.2rem;
+
+  &:hover {
+    background-color: $colorSecondary;
+  }
+}
+
 main {
   padding: 2rem;
 
