@@ -32,8 +32,10 @@ form {
     border-radius: $borderRadiusXSmall;
     resize: none;
 
+    
     &:focus {
-      @extend .input-focus;
+      // Add w/ tailwind
+      // @extend .input-focus;
     }
 
     // @include phone-only {
@@ -104,7 +106,8 @@ form {
             appearance: none;
 
             &:focus {
-              @extend .input-focus;
+              // Add w/ tailwind
+              // @extend .input-focus;
             }
   }
 }

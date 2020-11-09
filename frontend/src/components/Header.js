@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components/macro'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,6 +9,28 @@ import { user } from 'reducers/user'
 import { ui } from 'reducers/ui'
 
 import { Button } from './Button'
+
+const PageHeader = styled.header`
+  background-color: #50aca2;
+  color: #103a35;
+  height: 80px;
+`
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+`
+
+const Logo = styled.div`
+  flex: 1 1 auto;
+  font-size: 2rem;
+
+  svg {
+    cursor: pointer;
+  }
+`
 
 export const Header = () => {
   const history = useHistory()
@@ -33,12 +56,12 @@ export const Header = () => {
   }
 
   return (
-    <header>
-      <div className="container">
+    <PageHeader>
+      <Container>
 
-        <div className="logo" onClick={() => homeBtn()}>
+        <Logo onClick={() => homeBtn()}>
           <FontAwesomeIcon icon={faGift} />
-        </div>
+        </Logo>
 
         {!accessToken ? (
           <Button
@@ -59,7 +82,7 @@ export const Header = () => {
               }}
             />
           )}
-      </div>
-    </header>
+      </Container>
+    </PageHeader>
   )
 }

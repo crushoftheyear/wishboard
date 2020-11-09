@@ -1,29 +1,29 @@
-header {
-  background-color: $colorPrimary;
-  color: darken($colorPrimary, 34%);
-  height: 80px;
+// header {
+//   background-color: $colorPrimary;
+//   color: darken($colorPrimary, 34%);
+//   height: 80px;
 
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    padding: 1rem;
-  }
+//   .container {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     height: 100%;
+//     padding: 1rem;
+//   }
 
-  .logo {
-    flex: 1 1 auto;
-    font-size: 2rem;
+//   .logo {
+//     flex: 1 1 auto;
+//     font-size: 2rem;
 
-    svg {
-      cursor: pointer;
-    }
-  }
+//     svg {
+//       cursor: pointer;
+//     }
+//   }
 
-  .home-btn {
-    margin-right: 1rem;
-    width: 40px;
-    padding: 0;
-    border-radius: $borderRadiusSmall;
-  }
-}
+//   .home-btn {
+//     margin-right: 1rem;
+//     width: 40px;
+//     padding: 0;
+//     border-radius: $borderRadiusSmall;
+//   }
+// }

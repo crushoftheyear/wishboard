@@ -1,8 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Btn = styled.button`
+const PrimaryButton = styled.button`
   border: 0;
   height: 40px;
   background-color: #e6c345;
@@ -23,7 +23,7 @@ const Btn = styled.button`
 
 export const Button = ({ label, faIcon, className, submitHandler }) => {
   return (
-    <Btn
+    <PrimaryButton
       type="submit"
       onClick={submitHandler}
       className={`${className} rounded-2xl`}
@@ -32,6 +32,6 @@ export const Button = ({ label, faIcon, className, submitHandler }) => {
       { faIcon && <FontAwesomeIcon icon={faIcon} />}
       { label}
 
-    </Btn >
+    </PrimaryButton>
   )
 }

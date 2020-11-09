@@ -1,22 +1,22 @@
 /* –––– Utility classes –––– */
 
-.input-focus {
-  outline: 0;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, .5);
-}
+// .input-focus {
+//   outline: 0;
+//   box-shadow: 0 0 0 3px rgba(0, 123, 255, .5);
+// }
 
-.border-top-radius {
-  border-top-left-radius: $borderRadiusSmall;
-  border-top-right-radius: $borderRadiusSmall;
-}
+// .border-top-radius {
+//   border-top-left-radius: $borderRadiusSmall;
+//   border-top-right-radius: $borderRadiusSmall;
+// }
 
-.border-bottom-radius {
-  border-bottom-left-radius: $borderRadiusSmall;
-  border-bottom-right-radius: $borderRadiusSmall;
-}
+// .border-bottom-radius {
+//   border-bottom-left-radius: $borderRadiusSmall;
+//   border-bottom-right-radius: $borderRadiusSmall;
+// }
 
-.first-letter-uppercase {
-  &::first-letter {
-    text-transform: uppercase;
-  }
-}
+// .first-letter-uppercase {
+//   &::first-letter {
+//     text-transform: uppercase;
+//   }
+// }

@@ -11,7 +11,7 @@ export const WishCard = ({ wish }) => {
     <Link to={`/wish/${_id}`}>
 
       <Card className="wish-card">
-        <div className="img-container">
+        <div className="img-container rounded-t-2xl">
           <div className="ratio" />
 
           <img
