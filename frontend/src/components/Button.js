@@ -6,9 +6,9 @@ const Btn = styled.button`
   border: 0;
   height: 40px;
   // border-radius: $borderRadiusXSmall;
-  // background-color: $colorSecondary;
+  background-color: #e6c345;
   padding: .6rem 1.2rem;
-  font-family: 'brandon_grotesquebold';
+  font-family: 'BrandonBold';
   font-weight: inherit;
   transition: all .15s ease-in-out;
   cursor: pointer;
