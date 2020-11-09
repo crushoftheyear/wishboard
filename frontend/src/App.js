@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { createStore, combineReducers, applyMiddleware, compose } from '@reduxjs/toolkit'
 import thunk from 'redux-thunk'
+import GlobalFonts from 'fonts/fonts';
 
 import { ui } from 'reducers/ui'
 import { user } from 'reducers/user'
@@ -45,6 +46,7 @@ export const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Wrapper>
+          <GlobalFonts />
 
           <Switch>
 
