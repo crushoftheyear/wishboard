@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Btn = styled.button`
   border: 0;
   height: 40px;
-  // border-radius: $borderRadiusXSmall;
   background-color: #e6c345;
   padding: .6rem 1.2rem;
   font-family: 'BrandonBold';
@@ -27,12 +26,12 @@ export const Button = ({ label, faIcon, className, submitHandler }) => {
     <Btn
       type="submit"
       onClick={submitHandler}
-      className={className}
+      className={`${className} rounded-2xl`}
     >
 
-      {faIcon && <FontAwesomeIcon icon={faIcon} />}
-      {label}
+      { faIcon && <FontAwesomeIcon icon={faIcon} />}
+      { label}
 
-    </Btn>
+    </Btn >
   )
 }
