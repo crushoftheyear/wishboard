@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { user } from './user'
+import { ui } from './ui'
 
 const initialState = {
   boardId: 0,
@@ -88,6 +89,7 @@ export const boardInfo = (boardId) => {
   const BOARD_URL = `${BASE_URL}/boards/${boardId}`
 
   return (dispatch) => {
+    dispatch(ui.actions.setLoading(true))
     fetch(BOARD_URL, {
       method: 'GET'
     })
@@ -103,6 +105,7 @@ export const boardInfo = (boardId) => {
         dispatch(board.actions.setTheme({ theme: json.theme }))
         dispatch(board.actions.setWishes({ wishes: json.wishes }))
         dispatch(board.actions.setCreatedBy({ createdBy: json.createdBy }))
+        dispatch(ui.actions.setLoading(false))
       })
       .catch((err) => {
         dispatch(board.actions.setErrorMessage({ errorMessage: err }))

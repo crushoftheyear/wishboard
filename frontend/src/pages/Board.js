@@ -11,6 +11,7 @@ import { Grid } from 'components/Grid'
 import { WishCard } from 'components/WishCard'
 import { Modal } from 'components/Modal'
 import { EmptyState } from 'components/EmptyState'
+import { Loading } from 'components/Loading'
 
 export const Board = () => {
   const { isShowing, toggle } = useModal()
@@ -34,59 +35,63 @@ export const Board = () => {
   const wishesExists = wishes.length > 0
 
   return (
-    <section className="board">
+    <>
+      <Loading />
 
-      {boardCreatorAccess() && (
-        <div className="page-header">
-          <Button
-            faIcon={faArrowLeft}
-            className="back-btn"
-            submitHandler={() => {
-              history.push('/profile')
-            }}
-          />
+      <section className="board">
 
-          <Button
-            faIcon={faPlus}
-            className="create-btn"
-            submitHandler={() => {
-              setModalDisplay('create-wish')
-              toggle()
-            }}
-          />
+        {boardCreatorAccess() && (
+          <div className="page-header">
+            <Button
+              faIcon={faArrowLeft}
+              className="back-btn"
+              submitHandler={() => {
+                history.push('/profile')
+              }}
+            />
 
-          <Button
-            faIcon={faShare}
-            className="share-btn"
-            submitHandler={() => {
-              setModalDisplay('share-board')
-              toggle()
-            }}
-          />
+            <Button
+              faIcon={faPlus}
+              className="create-btn"
+              submitHandler={() => {
+                setModalDisplay('create-wish')
+                toggle()
+              }}
+            />
 
-          <Modal isShowing={isShowing} hide={toggle} display={modalDisplay} />
+            <Button
+              faIcon={faShare}
+              className="share-btn"
+              submitHandler={() => {
+                setModalDisplay('share-board')
+                toggle()
+              }}
+            />
 
-        </div>
-      )}
+            <Modal isShowing={isShowing} hide={toggle} display={modalDisplay} />
 
-      <>
-        <h1>{title}</h1>
+          </div>
+        )}
 
-        <Grid className="wishes-container">
+        <>
+          <h1>{title}</h1>
 
-          {!wishesExists && (
-            <EmptyState>
-              {boardCreatorAccess() ? 'Start adding wishes to your board!' : 'This board does not contain any wishes yet.'}
-            </EmptyState>
-          )}
+          <Grid className="wishes-container">
 
-          {wishes.map((wish) => (
-            <WishCard key={uuid()} wish={wish} />
-          ))}
+            {!wishesExists && (
+              <EmptyState>
+                {boardCreatorAccess() ? 'Start adding wishes to your board!' : 'This board does not contain any wishes yet.'}
+              </EmptyState>
+            )}
 
-        </Grid>
-      </>
+            {wishes.map((wish) => (
+              <WishCard key={uuid()} wish={wish} />
+            ))}
 
-    </section>
+          </Grid>
+        </>
+
+      </section>
+    </>
   )
 }
