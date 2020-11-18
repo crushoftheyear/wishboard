@@ -17,9 +17,10 @@ The backend is built with Node.js, Express & MongoDB. The UI is built using Reac
 - Javascript ES6
 - SASS
 
-## Features TODO
+## TODOS
+- Refactor w/ Styled components/Tailwind CSS
 - Delete boards/wishes on the frontend
-- Image upload w/ Cloudinary
+- Image upload via Cloudinary
 - Filter/sort wishes
 - Edit boards/wishes
 
