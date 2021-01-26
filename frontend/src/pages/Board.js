@@ -20,6 +20,7 @@ export const Board = () => {
   const history = useHistory()
 
   const { boardId } = useParams()
+  const isLoading = useSelector((state) => state.ui.isLoading)
 
   useEffect(() => {
     dispatch(boardInfo(boardId))
@@ -78,7 +79,7 @@ export const Board = () => {
 
           <Grid className="wishes-container">
 
-            {!wishesExists && (
+            {(!wishesExists && !isLoading) && (
               <EmptyState>
                 {boardCreatorAccess() ? 'Start adding wishes to your board!' : 'This board does not contain any wishes yet.'}
               </EmptyState>
